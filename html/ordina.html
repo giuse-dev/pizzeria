@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Domine|Niconne&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/ordina.css">
+  
+  <!-- per la scrollbar -->
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
+/>
+
+  <title>Antica Pizzeria | ordina</title>
+</head>
+<body onload="resetAll()">
+
+  <nav>
+    
+    <div class="logo">
+      <h2>Antica Pizzeria</h2>
+    </div>
+
+    <ul class="links">
+      <li><a href="../index.html">HOME</a></li>
+      <li class="current"><a href="#">ORDINA</a></li>
+      <li><a href="contatti.html">CONTATTI</a></li>
+    </ul>
+
+    <div id="burger">
+      <div id="line1"></div>
+      <div id="line2"></div>
+      <div id="line3"></div>
+    </div>
+  </nav>
+
+  <!-- il div coperto dalla fixed-nav -->
+  <div class="div-coperto"></div>
+
+  <div class="main-container">
+    
+    <div class="categoria">
+      <div><button id="categoria-button-pizze" onclick="selezionaCategoria(event)">Pizze</button></div>
+      <div><button id="categoria-button-rosticceria" onclick="selezionaCategoria(event)">Rosticceria</button></div>
+      <div><button id="categoria-button-bevande" onclick="selezionaCategoria(event)">Bevande</button></div>
+      
+    </div>
+
+    <div class="prodotto" data-simplebar data-simplebar-auto-hide="false">
+    
+      <div class="pizze selected">
+
+        <div id="margherita-div" class="single-prodotto-div">
+          <h2>Margherita</h2>
+          <div id="margh-div-ingr" class="div-ingr">
+            
+            <div id="margh-div-pom" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">pomodoro</span>
+            <br>
+
+            <div id="margh-div-mozz" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">mozzarella</span>
+            <br>
+
+            <div id ="margh-div-click" class="add-ingr" onclick="scegliIngr(event)">
+              <img src="../img/close-green.png" alt="">
+            </div>
+            <span class="add-ingr-span">Aggiungi ingrediente..</span>
+            <br>
+            Prezzo:<p id="margh-p-prezzo">5.00 &euro;</p>
+            <button id="margh-button-add" class="prodotto-button-add" onclick="addPizzaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+
+          </div>
+        </div> 
+
+        <div id="tedesca-div" class="single-prodotto-div">
+          <h2>Tedesca</h2>
+          <div id="ted-div-ingr" class="div-ingr">
+            <div id="ted-div-pom" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">pomodoro</span>
+            <br>
+            <div id="ted-div-mozz" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">mozzarella</span>
+            <br>
+            <div id="ted-div-pat" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">patatine</span>
+            <br>
+            <div id="ted-div-wur" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">wurstel</span>
+            <br>
+            <div id ="ted-div-click" class="add-ingr" onclick="scegliIngr(event)">
+              <img src="../img/close-green.png" alt="">
+            </div>
+            <span class="add-ingr-span">Aggiungi ingrediente..</span>
+            <br>
+            Prezzo:<p id="ted-p-prezzo">7.00 &euro;</p>
+            <button id="ted-button-add" class="prodotto-button-add" onclick="addPizzaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+
+          </div>
+        </div>
+        
+        <div id="marinara-div" class="single-prodotto-div">
+          <h2>Marinara</h2>
+          <div id="marin-div-ingr" class="div-ingr">
+
+            <div id="marin-div-pom" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">pomodoro</span>
+            <br>
+            <div id="marin-div-acciughe" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">acciughe</span>
+            <br>
+            <div id="marin-div-olive" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">olive</span>
+            <br>
+            <div id ="mar-div-click" class="add-ingr" onclick="scegliIngr(event)">
+              <img src="../img/close-green.png" alt="">
+            </div> <span class="add-ingr-span">Aggiungi ingrediente..</span>
+            <br>
+            Prezzo:<p id="marin-p-prezzo">5.50 &euro;</p>
+            <button id="marin-button-add" class="prodotto-button-add" onclick="addPizzaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+
+          </div>
+        </div>
+
+        <div id="4stagioni-div" class="single-prodotto-div">
+          <h2>Quattro-Stagioni</h2>
+          <div id="4stag-div-ingr" class="div-ingr">
+            <div id="4stag-div-pom" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">pomodoro</span>
+            <br>
+            <div id="4stag-div-mozz" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">mozzarella</span>
+            <br>
+            <div id="4stag-div-prosc" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">prosciutto</span>
+            <br>
+            <div id="4stag-div-funghi" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">funghi</span>
+            <br>
+            <div id="4stag-div-carc" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">carciofi</span>
+            <br>
+            <div id ="4stag-div-click" class="add-ingr" onclick="scegliIngr(event)">
+              <img src="../img/close-green.png" alt="">
+            </div> <span class="add-ingr-span">Aggiungi ingrediente..</span>
+            <br>
+            Prezzo:<p id="4stag-p-prezzo">7.00 &euro;</p>
+            <button id="4stag-button-add" class="prodotto-button-add" onclick="addPizzaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+
+          </div>
+        </div>
+
+        <div id="diavola-div" class="single-prodotto-div">
+          <h2>Diavola</h2>
+          <div id="diav-div-ingr" class="div-ingr">
+            <div id="diav-div-pom" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">pomodoro</span>
+            <br>
+            <div id="diav-div-mozz" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">mozzarella</span>
+            <br>
+            <div id="diav-div-salame" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">salame piccante</span>
+            <br>
+            <div id ="diav-div-click" class="add-ingr" onclick="scegliIngr(event)">
+              <img src="../img/close-green.png" alt="">
+            </div> <span class="add-ingr-span">Aggiungi ingrediente..</span>
+            <br>
+            Prezzo:<p id="diav-p-prezzo">6.00 &euro;</p>
+            <button id="diav-button-add" class="prodotto-button-add" onclick="addPizzaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+
+          </div>
+        </div>
+
+        <div id="vegetariana-div" class="single-prodotto-div">
+          <h2>Vegetariana</h2>
+          <div id="veg-div-ingr" class="div-ingr">
+            <div id="veg-div-pom" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">pomodoro</span>
+            <br>
+            <div id="veg-div-mozz" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">mozzarella</span>
+            <br>
+            <div id="veg-div-carc" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">carciofi</span>
+            <br>
+            <div id="veg-div-mel" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">melanzane</span>
+            <br>
+            <div id ="veg-div-click" class="add-ingr" onclick="scegliIngr(event)">
+              <img src="../img/close-green.png" alt="">
+            </div> <span class="add-ingr-span">Aggiungi ingrediente..</span>
+            <br>
+            Prezzo:<p id="veg-p-prezzo">6.00 &euro;</p>
+            <button id="veg-button-add" class="prodotto-button-add" onclick="addPizzaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+
+          </div>
+        </div>
+
+        <div id="montanara-div" class="single-prodotto-div">
+          <h2>Montanara</h2>
+          <div id="mont-div-ingr" class="div-ingr">
+            <div id="mont-div-mozz" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">mozzarella</span>
+            <br>
+            <div id="mont-div-funghi" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">funghi</span>
+            <br>
+            <div id="mont-div-sals" class="rmv-ingr">
+              <img src="../img/close-red.png" alt="">
+            </div><span class="ingrediente">salsiccia</span>
+            <br>
+            <div id ="mont-div-click" class="add-ingr" onclick="scegliIngr(event)">
+              <img src="../img/close-green.png" alt="">
+            </div> <span class="add-ingr-span">Aggiungi ingrediente..</span>
+            <br>
+            Prezzo:<p id="mont-p-prezzo">6.00 &euro;</p>
+            <button id="mont-button-add" class="prodotto-button-add" onclick="addPizzaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="rosticceria">
+
+        <div id="polpette-div" class="single-prodotto-div">
+          <h2>Polpette</h2>
+
+          <div class="radio-container">
+            <input type="radio" id="polpette-s" class="radio" name="polpette" onclick="onRadioSelection(event, 1.80)">
+            <label for="polpette-s">porzione piccola (1.80 &euro;)</label>
+          </div>
+
+          <div class="radio-container">
+            <input type="radio" id="polpette-g" class="radio" name="polpette" onclick="onRadioSelection(event, 2.80)">
+            <label for="polpette-g">porzione grande (2.80 &euro;)</label>
+          </div>
+
+          Prezzo:<p class="rosticceria-p">0.00 &euro;</p>
+            <button id="polpette-button-add" class="prodotto-button-add" onclick ="addRusticoToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+        </div>
+
+        <div id="patatine-div" class="single-prodotto-div">
+          <h2>Patatine</h2>
+
+          <div class="radio-container">
+            <input type="radio" id="patatine-s" class="radio" name="patatine" onclick="onRadioSelection(event, 1.50)">
+            <label for="patatine-s">porzione piccola (1.50 &euro;)</label>
+          </div>
+
+          <div class="radio-container">
+            <input type="radio" id="patatine-g" class="radio" name="patatine" onclick="onRadioSelection(event, 2.50)">
+            <label for="patatine-g">porzione grande (2.50 &euro;)</label>
+          </div>
+          
+          Prezzo:<p class="rosticceria-p">0.00 &euro;</p>
+            <button id="patatine-button-add" class="prodotto-button-add" onclick ="addRusticoToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+
+        </div>
+
+        <div id="calzone-div" class="single-prodotto-div">
+          <h2>Calzone</h2>
+
+          <div class="radio-container">
+            <input type="radio" id="calzone-mozz-cott" class="radio" name="calzone" onclick="onRadioSelection(event, 1.80)">
+            <label for="calzone-mozz-cott">mozzarella & cotto (1.80 &euro;)</label>
+          </div>
+
+          <div class="radio-container">
+            <input type="radio" id="calzone-mozz-spinaci" class="radio" name="calzone" onclick="onRadioSelection(event, 1.80)">
+            <label for="calzone-mozz-spinaci">mozzarella & spinaci (1.80 &euro;)</label>
+          </div>
+          Prezzo:<p class="rosticceria-p">0.00 &euro;</p>
+            <button id="calzone-button-add" class="prodotto-button-add" onclick ="addRusticoToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+
+        </div>
+
+
+      </div>
+
+      <div class="bevande">
+        
+        <div id="acqua05l-div" class="single-prodotto-div">
+          <h2>Acqua natuarale 50cl</h2>
+
+          Prezzo:<p class="bevande-p">0.80 &euro;</p>
+            <button id="acquap-button-add" class="prodotto-button-add" onclick="addBevandaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+
+        </div>
+
+        <div id="cola33cl-div" class="single-prodotto-div">
+          <h2>Coca cola 33cl</h2>
+
+            Prezzo:<p class="bevande-p">1.50 &euro;</p>
+            <button id="coca-button-add" class="prodotto-button-add" onclick="addBevandaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+
+        </div>
+
+        <div id="peroni-div" class="single-prodotto-div">
+          <h2>Birra Peroni 33cl</h2>
+
+            Prezzo:<p class="bevande-p">1.20 &euro;</p>
+            <button id="peroni-button-add" class="prodotto-button-add" onclick="addBevandaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+        </div>
+
+        <div id="ichnusa-div" class="single-prodotto-div">
+          <h2>Birra Ichnusa 33cl</h2>
+
+            Prezzo:<p class="bevande-p">1.80 &euro;</p>
+            <button id="ichnusa-button-add" class="prodotto-button-add" onclick="addBevandaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+        </div>
+
+        <div id="heineken-div" class="single-prodotto-div">
+          <h2>Birra Heineken 33cl</h2>
+
+            Prezzo:<p class="bevande-p">2.00 &euro;</p>
+            <button id="heineken-button-add" class="prodotto-button-add" onclick="addBevandaToResoconto(event)" >AGGIUNGI ALL'ORDINE</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="resoconto" data-simplebar data-simplebar-auto-hide="false">
+
+      <div class="carrello-div">
+        <h3>Prodotti ordinati:</h3>
+
+        <div id="resoconto-div-pizze">
+          
+          
+        </div>
+
+        <div id="resoconto-div-rustici">
+
+          
+        </div>
+
+        <div id="resoconto-div-bevande">
+
+          
+        </div>
+
+      </div>
+
+      <div class="conferma-pag">
+        <p id="costo-tot">Totale: 0.00 &euro;</p>
+        <button id="procedi-pag-button">
+          PROCEDI COL PAGAMENTO
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="div-overlay"></div>
+
+  <div class="div-ingredienti">
+
+    <div class="conferma-aggiunta-ingr" >
+      <p id="tot-conferma-agg-ingr">Totale: 0.00 &euro;</p>
+      <button onclick="addFromIngrToProd()">AGGIUNGI</button>
+    </div>
+
+    <div class="lista-ingredienti" data-simplebar data-simplebar-auto-hide="false">
+      <span id="span-acciughe" class="ingrediente-in-lista">Acciughe<span class="prezzo-singolo-ing">1.00 &euro; <div id="acciughe-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-carciofi" class="ingrediente-in-lista">Carciofi<span class="prezzo-singolo-ing">0.50 &euro; <div id="carciofi-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-cipolla" class="ingrediente-in-lista">Cipolla<span class="prezzo-singolo-ing">0.50 &euro; <div id="cipolla-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-funghi" class="ingrediente-in-lista">Funghi<span class="prezzo-singolo-ing">0.50 &euro; <div id="funghi-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-mozzarella" class="ingrediente-in-lista">Mozzarella<span class="prezzo-singolo-ing">1.00 &euro; <div id="mozz-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-bufala" class="ingrediente-in-lista">Mozz. di bufala<span class="prezzo-singolo-ing">2.00 &euro; <div id="mozz-bufala-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-melanzane" class="ingrediente-in-lista">Melanzane<span class="prezzo-singolo-ing">0.50 &euro; <div id="melanzane-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-olive" class="ingrediente-in-lista">olive<span class="prezzo-singolo-ing">0.50 &euro; <div id="olive-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-pancetta" class="ingrediente-in-lista">Pancetta<span class="prezzo-singolo-ing">1.00 &euro; <div id="pancetta-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-patatine" class="ingrediente-in-lista">Patatine<span class="prezzo-singolo-ing">1.00 &euro; <div id="patatine-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-peperoni" class="ingrediente-in-lista">Peperoni<span class="prezzo-singolo-ing">0.50 &euro; <div id="peperoni-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-pomodoro" class="ingrediente-in-lista">Pomodoro<span class="prezzo-singolo-ing">0.50 &euro; <div id="pomodoro-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-prosciutto" class="ingrediente-in-lista">Prosciutto<span class="prezzo-singolo-ing">1.00 &euro; <div id="prosc-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-salame-piccante" class="ingrediente-in-lista">Salame piccante<span class="prezzo-singolo-ing">1.00 &euro; <div id="sal-picc-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-salsiccia" class="ingrediente-in-lista">Salsiccia<span class="prezzo-singolo-ing"> 1.00 &euro; <div id="salsiccia-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-speck" class="ingrediente-in-lista">Speck<span class="prezzo-singolo-ing"> 1.00 &euro; <div id="speck-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-wurstel" class="ingrediente-in-lista">wurstel<span class="prezzo-singolo-ing">1.00 &euro; <div id="wurstel-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+      <span id="span-zucchine" class="ingrediente-in-lista">zucchine<span class="prezzo-singolo-ing">0.50 &euro; <div id="zucchine-button-div" class="square-button-div"><img src="../img/square-button1.png"></div> </span> </span>
+      <br>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <p>All rights reserved &copy; 2020</p>
+  </footer>
+
+  <script src="../javascript/app.js"></script>
+  <script src="../javascript/ordina.js"></script>
+  
+  <!-- per la scrollbar -->
+  <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,826 @@
+:root{
+  --ceramica: rgb(250, 248, 238);
+  --ceramica-scura: rgb(240, 238, 229);
+  --sfondo1: #7C161C;
+  --sfondo-chiaro: rgb(212, 213, 207);
+  /* background: rgba(28, 91, 218, 0.301); blu morto */
+  --font-nobile: 'Niconne', cursive;
+  --font-testo: 'Domine', serif;
+  --font-testo2: 'Merriweather', serif;
+  --blu-scuro: rgb(13, 34, 79);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  min-height: 100%;
+
+  /* background: rgb(200, 201, 203);
+  background: white; */
+  background: var(--ceramica);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* simplebar style */
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  width: 9px;
+  opacity: 1;
+}
+
+.simplebar-track{
+  margin-right: 0.2em;
+  padding: 7.5px !important;
+}
+
+.prodotto .simplebar-vertical .simplebar-scrollbar:before {
+  background: rgba(250, 252, 254, 0.980);
+}
+
+.resoconto .simplebar-vertical .simplebar-scrollbar:before {
+  background: rgba(45, 63, 102, 0.972);
+}
+
+.lista-ingredienti .simplebar-vertical .simplebar-scrollbar:before {
+  background: rgba(240, 238, 229, 0.924);
+}
+/* fine simplebar style */
+
+
+button{
+  cursor: pointer;
+}
+
+/* nav styiling */
+nav{
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+
+  background: var(--sfondo1);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  z-index: 4;
+}
+
+.div-coperto{
+  height: 10vh;
+}
+
+.logo{
+  color: var(--ceramica);
+
+  font-family: var(--font-nobile);
+  font-size: 4vh;
+  letter-spacing: 4px;
+}
+
+.links{
+  width: 35%;
+
+  list-style: none;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.links li a{
+  color: var(--ceramica);
+
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2.5vh;
+  text-decoration: none;
+}
+
+.current{
+  list-style-image: url(../img/freccia_red1.png);
+}
+
+.links li a:hover{
+  font-weight: bold;
+}
+
+#burger{
+  margin-top: auto;
+  margin-bottom: auto;
+
+  display: none;
+}
+
+#burger div{
+  margin: 2px;
+
+  width: 24px;
+  height: 3px;
+
+  background: var(--ceramica);
+}
+/* fine nav styling */
+
+.main-container{
+  margin-top: 1em;
+
+  width: 90%;
+  height: 75vh;
+
+  display: grid;
+  /* 3 colonne che prendono i seguenti spazi */
+  grid-template-columns: 1fr 3fr 2fr;
+  column-gap: 1.2em;
+}
+
+/* stilying div categoria */
+.categoria{
+  height: 75vh;
+  
+  background:var(--sfondo-chiaro);
+  border-radius: 0.6em;
+
+  grid-column: 1/2;
+
+  overflow: auto;
+}
+
+.categoria div{
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+
+.categoria button{
+  margin-left: 0.5em;
+
+  background: none;
+  border: none;
+  color: var(--blu-scuro);
+
+  font-family: var(--font-testo);
+  font-size: 1.3em; 
+  letter-spacing: 1px;
+}
+
+.categoria button:hover{
+  text-decoration: underline;
+}
+
+#categoria-button-pizze{
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+/* fine stilying div categoria */
+
+
+/* styling div prodotto */
+
+.prodotto{
+  padding-top: 0.4em;
+
+  height: 75vh;
+
+  background: rgb(24, 67, 153);
+  border-radius: 0.6em;
+  
+  font-family: var(--font-testo2);
+  font-size: 1.1em;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  grid-column: 2/3;
+
+  /* overflow: auto; */
+
+  display: block;
+}
+
+.prodotto p{
+  margin-right: 0.5em;
+}
+
+.single-prodotto-div{
+  margin: 0.5em 1.5em 1.3em 1em;
+  padding: 0.5em;
+  
+  background: white;
+  border-radius: 0.6em;
+}
+
+.prodotto h2{
+  margin-bottom: 0.15em;
+  
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+
+.prodotto p{
+  margin-left: 1em;
+  display: inline-block;
+}
+
+.pizze{
+  display: none;
+}
+
+.ingrediente{
+  margin-top: 0.2em;
+  padding-left: 0.3em;
+  
+  display: inline-block;
+}
+
+.add-ingr-span{
+  margin-bottom: 1em;
+  
+  color: rgba(0, 0, 0, 0.63);
+
+  display: inline-block;
+}
+
+.rmv-ingr{
+  position: relative;
+  top: 0.16em;
+
+  width: 0.95em;
+  height: 0.95em;
+  
+  display: inline-block;
+
+  cursor: pointer;
+}
+
+.rmv-ingr :hover{
+  transform: scale(1.12);
+}
+
+.rmv-ingr img{
+  width: 100%;
+  height: auto;
+}
+
+.add-ingr{
+  margin-top: 0.65em;
+
+  position: relative;
+  top: 0.16em;
+
+  width: 0.95em;
+  height: 0.95em;
+  
+  display: inline-block;
+
+  cursor: pointer;
+
+  transform: rotate(45deg);
+}
+
+.add-ingr :hover{
+  transform: scale(1.12);
+}
+
+.add-ingr img{
+  width: 100%;
+  height: auto;
+}
+
+.prodotto-button-add{
+  padding: 0.55em 0.6em 0.45em 0.6em;
+  
+  background: rgb(23, 84, 207);
+  border-radius: 0.4em;
+  color: white;
+
+  font-family: Arial, sans-serif;
+  font-family: var(--font-testo2);
+  font-weight: bold;
+  font-size: 0.75em;
+  letter-spacing: 0.15em;
+  
+  border: none;
+}
+
+.prodotto-button-add:hover{
+  background: rgb(0, 140, 0);
+}
+
+/* fine styling div prodotto */
+
+/* styling div rosticceria */
+.rosticceria{
+  display: none;
+}
+
+.rosticceria input{
+  margin-top: 0.8em;
+}
+
+.rosticceria-p{
+  margin-top: 1em;
+}
+
+/* styling radio button */
+.radio-container{
+  margin-top: 0.5em;
+
+  position: relative;
+}
+
+.radio-container input[type="radio"]{
+  display: none;
+}
+
+label{
+  margin-left: 1.6em;
+  cursor: pointer;
+}
+
+.radio-container label::after{
+  content: "";
+  
+  position: absolute;
+  top: 2px;
+  left: 2.5px;
+
+  width: 16px;
+  height: 16px;
+
+  border: 3px solid rgba(0, 0, 0, 0.795);;
+  border-radius: 50%;
+}
+.radio-container label::before{
+  content: "";
+  
+  position: absolute;
+  top: 8.6px;
+  left: 9.1px;
+
+  width: 8px;
+  height: 8px;
+
+  background: rgba(0, 0, 0, 0.795);;
+  border-radius: 50%;
+
+  opacity: 0;
+}
+
+.radio-container input:checked ~ label::before{
+  opacity: 1;
+}
+/* fine styling radio button */
+
+/* fine styling div rosticceria */
+
+/* styling div bevande */
+
+.bevande{
+  display: none;
+}
+
+.bevande h2{
+  margin-bottom: 0.5em;
+}
+
+/* fine styling div bevande */
+
+.selected{
+  display: block;
+}
+
+/* styling resoconto */
+
+.resoconto{
+  height: 75vh;
+
+  padding: 0.5em;
+  
+  color: var(--blu-scuro);
+  background: var(--sfondo-chiaro);
+  
+  border-radius: 0.6em;
+  
+  grid-column: 3/4;
+
+  /* overflow: auto; */
+}
+
+.resoconto h3{
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.resoconto p{
+  font-family: var(--font-testo2);
+  font-weight: bold;
+}
+
+#procedi-pag-button{
+  margin-top: 0.35em;
+  padding: 0.7em 0.9em;
+  
+  color: white;
+  background: rgb(0, 150, 0);
+  border-radius: 0.4em;
+
+  font-family: var(--font-testo2);
+  font-weight: bold;
+  font-size: 0.8em;
+  letter-spacing: 0.15em;
+  
+  border: none;
+}
+
+#procedi-pag-button:hover{
+  font-size: 0.82em;
+}
+
+.carrello-div{
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.carrello-div h3{
+
+  margin-top: 0.6em;
+  margin-bottom: 0.8em;
+
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 1.1em;
+}
+
+.conferma-pag{
+  margin: 1.5em 0.5em 0 0.5em;
+  text-align: center;
+}
+
+#costo-tot{
+  font-family: var(--font-testo2);
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.div-prodotto-resoconto{
+  margin-bottom: 1em;
+  padding: 0.5em 0.8em 0.5em 0.8em;
+
+  width: 97%;
+  background: var(--ceramica-scura);
+  border-radius: 0.6em;
+}
+
+.nome-prodotto-resoconto{
+  font-size: 1.1em;
+}
+
+.descrizione-prodotto-resoconto{
+  margin-top: 0.45em;
+  margin-bottom: 0.30em;
+  font-size: 0.9em;
+}
+
+.prezzo-prodotto-resoconto{
+  margin-top: 0.35em;
+  display: inline-block;
+}
+
+.button-rimuovi-resoconto{
+  margin-left: 1.5em;
+  
+  padding: 0.25em 0.4em 0.2em 0.4em;
+
+  color: var(--ceramica);
+  background: #184399;
+  border-style: none;
+  border-radius: 0.3em;
+
+  font-family: var(--font-testo2);
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.button-rimuovi-resoconto:hover{
+  font-size: 0.85em;
+}
+/* fine styling resoconto */
+
+.div-overlay{
+  position: absolute;
+  top: 10vh;
+
+  width: 100%;
+  height: 90vh;
+
+  background: rgba(0, 0, 0, 0.87);
+
+  display: none;
+  z-index: 2;
+}
+
+.div-ingredienti{
+  margin: 0 auto 0 auto;
+
+  position: absolute;
+  top: 10vh;
+
+  width: 68%;
+  height: 85vh;
+
+  color: var(--ceramica);
+  color: rgb(201, 199, 192);
+  background: var(--ceramica-scura);
+  background:rgb(241, 235, 202);
+  background:rgb(206, 224, 224);
+  background:rgb(206, 215, 224); /*forse da schiarire */
+  display: none;
+
+  z-index: 3;
+}
+
+.conferma-aggiunta-ingr{
+
+  height: 16%;
+
+  color: var(--blu-scuro);
+  background: var(--sfondo-chiaro);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conferma-aggiunta-ingr p{
+
+  margin-right: 0.7em;
+  font-family: var(--font-testo2);
+  font-size: 3.1vh;
+}
+
+.conferma-aggiunta-ingr button{
+  padding: 0.6em 0.7em 0.5em 0.7em;
+
+  color: var(--ceramica);
+  background: rgb(0, 165, 0);
+  border: none;
+  border-radius: 0.2em;
+
+  font-family: var(--font-testo2);
+  font-size: 2.3vh;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+/* .conferma-aggiunta-ingr button{
+  padding: 0.7em 0.9em;
+  
+  color: white;
+  background: rgb(0, 150, 0);
+  border-radius: 0.4em;
+
+  font-family: var(--font-testo2);
+  font-weight: bold;
+  font-size: 0.8em;
+  letter-spacing: 0.15em;
+  
+  border: none;
+} */
+
+.lista-ingredienti{
+  padding-top: 1.7em;
+
+  height: 84%;
+
+  background: rgb(6, 50, 138);
+  background: rgb(6, 39, 107);
+}
+
+.ingrediente-in-lista{
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0.4em;
+
+  width: 90%;
+
+  background: rgb(29, 80, 183);
+  border-radius: 2px;
+
+  font-family: var(--font-testo);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.evidenzia{
+  color: var(--blu-scuro);
+  background: var(--ceramica);
+  box-shadow: 0px 1px 5px 1px var(--blu-scuro);
+}
+
+.prezzo-singolo-ing{
+  margin-top: -0.5em;
+}
+
+.square-button-div{
+  margin-left: 0.3em;
+  
+  position: relative;
+  top: 0.35em;
+
+  display: inline-block;
+  cursor: pointer;
+}
+
+.square-button-div img{
+  border-radius: 10%;
+}
+
+footer{
+  margin-top: auto;
+
+  height: 7vh;
+  width: 100%;
+
+  background: var(--sfondo1);
+
+  text-align: center;
+}
+
+footer p{
+  padding-top: 2vh;
+  
+  color: var(--ceramica);
+
+  font-size: 2.3vh;
+}
+
+
+/* tre media max-height per aggiustare la vh del font size dei link nella nav */
+@media screen and (max-height: 650px){
+  .links li a{
+    font-size: 3vh;
+  }
+}
+
+@media screen and (max-height: 500px){
+  .links li a{
+    font-size: 3.8vh;
+  }
+}
+
+@media screen and (max-height: 350px){
+  .links li a{
+    font-size: 4.8vh;
+  }
+}
+/* chiusura tre media max-height per aggiustare la vh del font size dei link nella nav */
+
+
+/* riorganizzazione della grid */
+@media screen and (max-width: 1080px){
+  .main-container{
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+
+    width: 98%;
+    height: 77vh;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .categoria{
+    height: 9vh;
+
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .categoria div{
+    margin: 0;
+    display: flex;
+  }
+
+  .categoria button{
+    font-size: 1.15em;
+  }
+
+  .prodotto{
+    margin-top: 1vh;
+    height: 34vh;
+  }
+
+  .resoconto{
+    margin-top: 2vh;
+    padding: 0.5em;
+
+    height: 31vh;
+  }
+
+  .div-ingredienti{
+    width: 76%;
+  }
+
+}
+/* fine riorganizzazione della grid */
+
+
+/* distanzio un po i vari link della nav */
+@media screen and (max-width: 1024px){
+  .links{
+    width: 40%;
+    justify-content: space-between;
+  }
+
+  .div-ingredienti{
+    width: 83%;
+  }
+}
+/* chiusura distanzio un po i vari link della nav */
+
+/* nav e burger styling */
+@media screen and (max-width: 850px){
+  body{
+    overflow-x: hidden;
+  }
+
+  .logo{
+    font-size: 3.5vh;
+  }
+  
+  .links{
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    
+    width: 45%;
+    height: 90vh;
+
+    background: rgba(124, 22, 29, 0.955);
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+    transform: translateX(100%);
+    transition: transform 0 ease;
+  }
+
+  .links li a{
+    font-size: 1.05em;
+  }
+  
+  .current{
+    list-style-image: url(../img/freccia_red2.png);
+  }
+  
+  .links-trans{
+    transform: translateX(0);
+  }
+
+  #burger{
+    padding-top: 1vh;
+
+    cursor: pointer;
+    display: block;
+  }
+
+  .secondary-line2{
+    display: none;
+  }
+
+  .secondary-line1{
+    transform: translate(2px,-1px) rotate(45deg);
+    transition: transform 0 ease;
+  }
+
+  .secondary-line3{
+    transform: translate(2px,-5.5px) rotate(135deg);
+    transition: transform 0 ease;
+  }
+
+  .div-ingredienti{
+    width: 94%;
+  }
+
+  .ingrediente-in-lista{
+    width: 83%;
+  }
+
+}
+/* chiusura nav e burger styling */

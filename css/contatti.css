@@ -1,0 +1,352 @@
+:root{
+  --ceramica: rgb(250, 248, 238);
+  --sfondo1: #42510d;
+
+  --font-nobile: 'Niconne', cursive;
+  --font-testo: 'Domine', serif;
+  --font-testo2: 'Bitter', serif;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  min-height: 100%;
+
+  background: url("../img/backboard.jpg");
+  background: #260609;
+  background: linear-gradient(to right,rgba(33, 5, 9, 0.938),#210509);
+
+  background: linear-gradient(to right,rgba(24, 21, 21, 0.931) , #181515);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* nav styling */
+nav{
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+
+  background: var(--sfondo1);
+  
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  z-index: 1;
+}
+
+.div-coperto{
+  height: 10vh;
+}
+
+.logo{
+  color: var(--ceramica);
+
+  font-family: var(--font-nobile);
+  font-size: 4vh;
+  letter-spacing: 4px;
+}
+
+.links{
+  width: 35%;
+
+  list-style: none;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.links li a{
+  color: var(--ceramica);
+
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2.5vh;
+  text-decoration: none;
+}
+
+.current{
+  list-style-image: url(../img/freccia_green1.png);
+}
+
+.links li a:hover{
+  font-weight: bold;
+}
+
+#burger{
+  margin-top: auto;
+  margin-bottom: auto;
+  display: none;
+}
+
+#burger div{
+  margin: 2px;
+
+  width: 24px;
+  height: 3px;
+
+  background: var(--ceramica);
+}
+/* fine nav styling */
+
+.img-locale{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.contenitore3{
+  margin-top: 4em;
+  margin-bottom: 2em;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2em 1em 1.5em 1em;
+  width: 90%;
+  background: var(--ceramica);
+  /* background: rgb(189, 187, 179);
+  background: rgb(212, 205, 204); */
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+
+.div-orari{
+  padding: 1em;
+  width: 50%;
+  flex-shrink: 0; /*per permettere la width */
+}
+
+.div-orari h3{
+  margin-bottom: 0.8em;
+  
+  color: rgba(161, 45, 27, 0.911);
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.35em;
+}
+
+.giorno{
+  margin-bottom: 3px;
+}
+
+.div-orari p{
+  font-family: var(--font-testo);
+  font-size: 1.1em;
+}
+
+hr{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.div-domicilio{
+  padding: 1em;
+  width: 50%;
+  flex-shrink :0; /*per permettere la width */
+  align-self: center;
+}
+
+.phone-email-div{
+  margin-bottom: 1em;
+}
+
+.phone-email-div span{
+  position: relative;
+  left: 0.25em;
+  bottom: 2px;
+
+  font-family: var(--font-testo);
+  font-weight: bold;
+  letter-spacing: 0.03em;
+}
+
+#span-tel{
+  font-size: 1.1em;
+  letter-spacing: 0.1em;
+}
+
+.div-domicilio p{
+  font-family: var(--font-testo);
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 150%;
+  letter-spacing: 1px;
+}
+
+.div-domicilio a{
+  white-space: nowrap;
+  color: black;
+
+  font-family: var(--font-testo2);
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  
+}
+
+.div-domicilio a:hover{
+  font-size: 1.25em;
+}
+
+
+footer{
+  margin-top: auto;
+
+  height: 7vh;
+  width: 100%;
+
+  background: var(--sfondo1);
+
+  text-align: center;
+}
+
+footer p{
+  padding-top: 2vh;
+
+  color: var(--ceramica);
+  
+  font-size: 2.3vh;
+}
+
+
+/* tre media max-height per agigustare la vh del font size dei link nella nav */
+@media screen and (max-height: 650px){
+  .links li a{
+    font-size: 3vh;
+  }
+}
+
+@media screen and (max-height: 500px){
+  .links li a{
+    font-size: 3.8vh;
+  }
+}
+
+@media screen and (max-height: 350px){
+  .links li a{
+    font-size: 4.8vh;
+  }
+}
+/* chiusura tre media max-height per agigustare la vh del font size dei link nella nav */
+
+/* distanzio un po i vari link della nav */
+@media screen and (max-width: 1024px){
+  .links{
+    width: 40%;
+    justify-content: space-between;
+  }
+}
+/* chiusura distanzio un po i vari link della nav */
+
+/* contenitore3 styling */
+@media screen and (max-width: 960px){
+  .contenitore3{
+    margin: 0;
+    padding-top: 4em;
+  
+    width: 100%;
+  
+    background: var(--ceramica);
+    box-shadow: none;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .div-recapiti{
+    margin-bottom: 1em;
+    width: 80%;
+  }
+
+  .div-orari{
+    margin-bottom: 1em;
+    width: 80%;
+  }
+
+  .div-domicilio{
+    margin-bottom: 1em;
+    width: 96%;
+  }
+}
+/* chiusura contenitore3 styling */
+
+
+/* nav e burger styling */
+@media screen and (max-width: 850px){
+  body{
+    overflow-x: hidden;
+  }
+
+  .logo{
+    font-size: 3.5vh;
+  }
+  
+  .links{
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    
+    width: 45%;
+    height: 90vh;
+    
+    background: rgba(124, 22, 29, 0.945);
+    background: rgba(66, 81, 13, 0.966);
+    
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+    transform: translateX(100%);
+    transition: transform 0 ease;
+  }
+
+  .links li a{
+    font-size: 1.05em;
+  }
+  
+  .current{
+    list-style-image: url(../img/freccia_green2.png);
+  }
+  
+  .links-trans{
+    transform: translateX(0);
+  }
+
+  #burger{
+    padding-top: 1vh;
+    cursor: pointer;
+    display: block;
+  }
+
+  .secondary-line2{
+    display: none;
+  }
+
+  .secondary-line1{
+    transform: translate(2px,-1px) rotate(45deg);
+    transition: transform 0 ease;
+  }
+
+  .secondary-line3{
+    transform: translate(2px,-5.5px) rotate(135deg);
+    transition: transform 0 ease;
+  }
+
+}
+/* chiusura nav e burger styling */
